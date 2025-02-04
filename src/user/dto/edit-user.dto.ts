@@ -7,13 +7,13 @@ import {
 export class EditUserDto {
   @IsEmail()
   @IsOptional()
-  email: string;
+  email?: string;
 
   @IsString()
   @IsOptional()
-  firstName: string;
+  firstName?: string;
 
   @IsString()
   @IsOptional()
-  lasName: string;
+  lastName?: string;
 }
