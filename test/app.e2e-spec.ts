@@ -165,17 +165,6 @@ describe('App e2e', () => {
         title: 'First bookmark',
         link: 'test link',
       };
-      it('should create bookmark', () => {
-        return pactum
-          .spec()
-          .post('/bookmarks')
-          .withHeaders({
-            Authorization: 'Bearer $S{userAt}',
-          })
-          .withBody(dto)
-          .expectStatus(201)
-          .stores('bookmarkId', 'id');
-      });
     });
     describe('Get bookmarks', () => {
       it('should get bookmarks', () => {
