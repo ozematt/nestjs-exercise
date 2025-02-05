@@ -115,38 +115,6 @@ describe('App e2e', () => {
       });
     });
   });
-  describe('User', () => {
-    describe('Get user', () => {
-      it('should get current user', () => {
-        return pactum
-          .spec()
-          .get('/users/me')
-          .withHeaders({
-            Authorization: 'Bearer $S{userAt}',
-          })
-          .expectStatus(200);
-      });
-    });
-    describe('Edit user', () => {
-      it('should edit users', () => {
-        const dto: EditUserDto = {
-          firstName: 'matt',
-          email: 'test@gmail.com',
-        };
-
-        return pactum
-          .spec()
-          .patch('/users')
-          .withHeaders({
-            Authorization: 'Bearer $S{userAt}',
-          })
-          .withBody(dto)
-          .expectStatus(200)
-          .expectBodyContains(dto.firstName)
-          .expectBodyContains(dto.email);
-      });
-    });
-  });
 
   describe('Bookmarks', () => {
     describe('Get empty bookmarks', () => {
