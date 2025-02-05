@@ -25,6 +25,12 @@ export class BookmarkController {
   constructor(
     private bookmarkService: BookmarkService,
   ) {}
+  @Get()
+  getBookmarks(@GetUser('id') userId: number) {
+    return this.bookmarkService.getBookmarks(
+      userId,
+    );
+  }
 
   @Get(':id')
   getBookmarkById(
