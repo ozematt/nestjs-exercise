@@ -32,6 +32,18 @@ export class BookmarkController {
     );
   }
 
+  @Get(':id')
+  getBookmarkById(
+    @GetUser('id') userId: number,
+    @Param('id', ParseIntPipe)
+    bookmarkId: number,
+  ) {
+    return this.bookmarkService.getBookmarkById(
+      userId,
+      bookmarkId,
+    );
+  }
+
   @Post()
   createBookmark(
     @GetUser('id') userId: number,
